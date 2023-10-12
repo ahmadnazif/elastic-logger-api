@@ -1,5 +1,10 @@
+using ElasticLoggerApi.Services;
+using ILogger = ElasticLoggerApi.Services.ILogger;
+
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
+
+builder.Services.AddSingleton<ILogger, Logger>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
