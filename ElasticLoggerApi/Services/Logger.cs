@@ -8,6 +8,7 @@ public class Logger : ILogger
 {
     private readonly NLog.Logger debugLogger = LogManager.GetLogger("Debug");
     private readonly NLog.Logger dbErrorLogger = LogManager.GetLogger("DbError");
+    private readonly NLog.Logger errorLogger = LogManager.GetLogger("Error");
 
     public LoggingConfiguration LoggingConfiguration { get; }
 
@@ -26,7 +27,8 @@ public class Logger : ILogger
         return new()
         {
             "Debug",
-            "DbError"
+            "DbError",
+            "Error"
         };
     }
 
@@ -45,10 +47,16 @@ public class Logger : ILogger
             dbErrorLogger.Error($"{methodName} | {ex.Message}");
     }
 
+    public void Error(string txt)
+    {
+        errorLogger.Error(txt);
+    }
+
 }
 
 public interface ILogger
 {
     void Debug(string txt);
     void DbError(Exception ex, bool detailed, [CallerMemberName] string caller = null, [CallerLineNumber] int? line = null);
+    void Error(string txt);
 }

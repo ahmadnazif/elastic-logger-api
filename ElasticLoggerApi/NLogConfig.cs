@@ -22,7 +22,7 @@ public class NLogConfig
         var target = new ElasticSearchTarget
         {
             Name = "Elastic",
-            Index = $"{logName}{dateFormat}",
+            Index = $"{logName}-{dateFormat}",
             Uri = "http://localhost:9200",
             Layout = logLayout
         };

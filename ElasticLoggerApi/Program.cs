@@ -4,7 +4,13 @@ using ILogger = ElasticLoggerApi.Services.ILogger;
 var builder = WebApplication.CreateBuilder(args);
 var config = builder.Configuration;
 
-builder.Services.AddSingleton<ILogger, Logger>();
+switch (config["LoggerUsed"])
+{
+    case "Elastic": builder.Services.AddSingleton<ILogger, Logger>(); break;
+    case "Console": builder.Services.AddSingleton<ILogger, ConsoleLogger>(); break;
+}
+//builder.Services.AddSingleton<ILogger, Logger>();
+builder.Services.AddSingleton<ILogger, ConsoleLogger>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -22,4 +22,9 @@ public class ConsoleLogger : ILogger
     {
         logger.LogInformation(txt);
     }
+
+    public void Error(string txt)
+    {
+        logger.LogError(txt);
+    }
 }
