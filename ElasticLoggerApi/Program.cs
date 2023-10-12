@@ -6,7 +6,7 @@ var config = builder.Configuration;
 
 switch (config["LoggerUsed"])
 {
-    case "Elastic": builder.Services.AddSingleton<ILogger, Logger>(); break;
+    case "Elastic": builder.Services.AddSingleton<ILogger, ElasticLogger>(); break;
     case "Console": builder.Services.AddSingleton<ILogger, ConsoleLogger>(); break;
 }
 //builder.Services.AddSingleton<ILogger, Logger>();

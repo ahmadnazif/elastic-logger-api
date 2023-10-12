@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace ElasticLoggerApi.Services;
 
-public class Logger : ILogger
+public class ElasticLogger : ILogger
 {
     private readonly NLog.Logger debugLogger = LogManager.GetLogger("Debug");
     private readonly NLog.Logger dbErrorLogger = LogManager.GetLogger("DbError");
@@ -12,7 +12,7 @@ public class Logger : ILogger
 
     public LoggingConfiguration LoggingConfiguration { get; }
 
-    public Logger(IConfiguration cfg)
+    public ElasticLogger(IConfiguration cfg)
     {
         var logList = LoggersToAdd();
 
