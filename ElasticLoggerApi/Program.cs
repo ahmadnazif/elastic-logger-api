@@ -9,8 +9,6 @@ switch (config["LoggerUsed"])
     case "Elastic": builder.Services.AddSingleton<ILogger, ElasticLogger>(); break;
     case "Console": builder.Services.AddSingleton<ILogger, ConsoleLogger>(); break;
 }
-//builder.Services.AddSingleton<ILogger, Logger>();
-builder.Services.AddSingleton<ILogger, ConsoleLogger>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
