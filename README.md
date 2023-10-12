@@ -7,7 +7,7 @@ This project uses ElasticSearch & Kibana for logging purpose
 - Clone this project. Like a normal .NET project, you can run it by <code>dotnet run</code> command.
 - On <code>appsettings.json</code>:
   - The default port is 7500. Change it as you desired.
-  - Change LoggerType can accept "Elastic" or "Console" value.
+  - <code>LoggerType</code> can accept "Elastic" or "Console" value.
 - The default ElasticSearch URL is http://localhost:9200.
 - Publish the project, then put it anywhere on Ubuntu Server (typically on your home directory). Test the app by running <code>dotnet ElasticLoggerApi.dll</code> from the app location.
 - If you want, you can create systemctl service for this app.
